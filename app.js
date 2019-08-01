@@ -13,7 +13,6 @@ mongoose.connect('mongodb://localhost/userdb', { useNewUrlParser: true });
 //set up Schema
 const userSchema = new mongoose.Schema({email: String, password: String});
 
-// var secret = "This is our little secret."
 userSchema.plugin(encrypt, {secret: process.env.SECRET, encryptedFields: ['password']});
 const User = mongoose.model('User', userSchema);
 
